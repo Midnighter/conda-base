@@ -25,6 +25,6 @@ ARG PYTHON_VERSION="3.8"
 RUN set -eux \
     && conda update -n base conda \
     && conda install python="${PYTHON_VERSION}" \
-    && conda clean --all --force-pkgs-dirs --yes \
+    && conda clean --all --force-pkgs-dirs \
     && conda init bash
 
