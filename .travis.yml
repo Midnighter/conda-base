@@ -1,0 +1,43 @@
+---
+os: linux
+
+language: shell
+
+services:
+- docker
+
+git:
+  depth: 2
+
+branches:
+  only:
+  - master
+
+env:
+  global:
+  - IMAGE_REPO=midnighter/conda-base
+  jobs:
+  - PYTHON_VERSION=3.6
+  - PYTHON_VERSION=3.7
+  - PYTHON_VERSION=3.8
+
+before_install:
+- echo "${DOCKER_PASSWORD}" | docker login --username="${DOCKER_USER}" --password-stdin
+- docker pull continuumio/miniconda3:latest
+- export IMAGE_LATEST="midnighter/conda-base:${PYTHON_VERSION}-latest"
+- export IMAGE_DATE="midnighter/conda-base:${PYTHON_VERSION}-$(date --iso-8601=date)"
+
+install:
+- docker build --build-arg PYTHON_VERSION --tag "${IMAGE_LATEST}" --tag "${IMAGE_DATE}" .
+
+script:
+- docker run "${IMAGE_DATE}" conda info
+
+after_success:
+- docker push "${IMAGE_LATEST}"
+- docker push "${IMAGE_DATE}"
+
+notifications:
+  email:
+    on_success: never
+    on_failure: always
