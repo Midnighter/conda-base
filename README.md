@@ -35,5 +35,5 @@ Additionally, there are monthly builds that create a date based image tag.
 
 ## Copyright
 
-* Copyright © 2020, Moritz E. Beber. All rights reserved.
+* Copyright © 2020, Moritz E. Beber.
 * Free software licensed under the [Apache License, Version 2.0](LICENSE).
