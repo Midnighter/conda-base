@@ -1,12 +1,13 @@
-# FastAPI-Base
+# Conda-Base
 
 [![master Build Status](https://travis-ci.org/Midnighter/conda-base.svg?branch=master)](https://travis-ci.org/Midnighter/conda-base)
 [![Docker image pulls](https://img.shields.io/docker/pulls/midnighter/conda-base)](https://cloud.docker.com/repository/docker/midnighter/conda-base/)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blueviolet)](https://opensource.org/licenses/Apache-2.0)
 
-The `conda-base` image slightly expands the `continuumio/miniconda3` image and
-includes a configuration file with strict channel order, as well as particular
-Python versions in the base environment.
+The `conda-base` image slightly expands the
+[continuumio/miniconda3](https://hub.docker.com/r/continuumio/miniconda3) image
+and includes a configuration file with strict channel order, as well as
+particular Python versions in the base environment.
 
 ## Usage
 
